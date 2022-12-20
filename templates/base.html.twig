@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="michel kasanga">
+        
+        <title>{% block title %} Gethsemane {% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+            {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+
+            {% block stylesheets %}
+                {{ encore_entry_link_tags('app') }}
+                <link rel="stylesheet" href="  {{ asset('front/vendors/themify-icons/css/themify-icons.css') }} ">
+                 <!-- Bootstrap + JohnDoe main styles -->
+                <link rel="stylesheet" href=" {{ asset('front/css/style.css') }} ">
+            {% endblock %}
+
+       
+    </head>
+    <body  data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+        {% block navbar %} 
+            {% include "partials/_navbar.html.twig" %}
+        {% endblock %}
+
+        {% block body %}{% endblock %}
+
+        {% block footer %} 
+            {% include "partials/_footer.html.twig" %}
+        {% endblock %}
+         {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+                <script src="{{ asset('front/vendors/jquery/jquery-3.4.1.js') }}"></script>
+                <script src="{{ asset('front/vendors/bootstrap/bootstrap.bundle.js')}}"></script>
+                <!-- bootstrap 3 affix -->
+                <script src="{{ asset('front/vendors/bootstrap/bootstrap.affix.js')}}"></script>
+                <!-- Isotope  -->
+                <script src="{{ asset('front/vendors/isotope/isotope.pkgd.js')}}"></script>
+                <!-- Google mpas -->
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+                <!-- JohnDoe js -->
+                <script src="{{asset('front/js/sym.js')}}"></script>
+        {% endblock %}
+    </body>
+</html>
